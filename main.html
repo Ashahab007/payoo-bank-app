@@ -20,7 +20,7 @@
           <div class="flex gap-4">
             <img class="w-16" src="./assets/tick.png" alt="" srcset="" />
             <div>
-              <h1 class="text-3xl font-bold">$ 45000</h1>
+              <h1  class="text-3xl font-bold">$ <span id="main-balance">45000</span></h1>
               <p class="border rounded-sm p-1">Available Balance</p>
             </div>
           </div>
@@ -121,7 +121,7 @@
                         <option value="dbbl">DBBL</option>
                       </select>
                       <fieldset class="fieldset">
-                        <label class="fieldset-label">Mobile Number</label>
+                        <label class="fieldset-label">Account Number</label>
                         <input
                           value="01301301302"
                           maxlength="11"
@@ -129,6 +129,14 @@
                           type="number"
                           class="input"
                           placeholder="Enter your number"
+                          required
+                        />
+                        <label class="fieldset-label">Amount to Add</label>
+                        <input
+                          id="amount"
+                          type="number"
+                          class="input"
+                          placeholder="Add Amount to Withdraw"
                           required
                         />
                         <label class="fieldset-label">4 Digit Pin</label>
@@ -141,7 +149,7 @@
                           required
                         />
                       
-                        <button id="login-btn" class="btn btn-neutral bg-blue-700 border-none w-full rounded-3xl mt-4">
+                        <button id="add-money" class="btn btn-neutral bg-blue-700 border-none w-full rounded-3xl mt-4">
                           Add Money
                         </button>
                       </fieldset>
@@ -154,5 +162,6 @@
         </section>
       </header>
     </section>
+    <script src="./script/add-money.js"></script>
   </body>
 </html>

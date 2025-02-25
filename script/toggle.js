@@ -1,3 +1,4 @@
+// !Toggling between add Money & Cash out
 document.getElementById("cashout-section").style.display = "none";
 
 document.getElementById("add-money-box").addEventListener("click", function () {

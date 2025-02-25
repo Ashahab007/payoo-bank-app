@@ -9,7 +9,7 @@ document
     const convertedPin = parseInt(pin);
     console.log(pin);
     if (accountNumber.length === 11) {
-      console.log("account number ok");
+      // console.log("account number ok");
       if (convertedPin === 1234) {
         window.location.href = "./main.html"; //open the expected page
       } else {

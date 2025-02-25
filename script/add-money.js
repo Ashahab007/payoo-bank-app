@@ -10,11 +10,16 @@ document
     const mainBalance = document.getElementById("main-balance").innerText;
     const convertedMainBalance = parseFloat(mainBalance);
     // alert(typeof convertedMainBalance);
-    if (convertedPin === 1234) {
-      let sum = amountConToNum + convertedMainBalance;
-      document.getElementById("main-balance").innerText = sum;
-      //   alert(sum);
+    if (amount && pin) {
+      if (convertedPin === 1234) {
+        let sum = amountConToNum + convertedMainBalance;
+        document.getElementById("main-balance").innerText = sum;
+        document.getElementById("amount").value = "";
+        //   alert(sum);
+      } else {
+        alert("Pin not ok");
+      }
     } else {
-      alert("pin not ok");
+      alert("Input amount empty.");
     }
   });

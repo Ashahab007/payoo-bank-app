@@ -33,11 +33,11 @@ document
     const cashOutAmount = inputValidationId("cashout-amount");
     // alert(cashOutAmount);
     const mainBalance = getInnerTextById("main-balance");
-    const transactionContainer = document.getElementById(
-      "transaction-container"
-    );
     const accountNumber = document.getElementById("account-number").value;
-
+    /* if (amount < 0) {
+      alert("Negative value not allowed.");
+      return;
+    } */
     if (cashOutAmount) {
       let sum = mainBalance - cashOutAmount;
       if (sum <= 0) {
@@ -45,11 +45,20 @@ document
       } else {
         setInnerTextByIdandValue("main-balance", sum);
         document.getElementById("cashout-amount").value = "";
-        let p = document.createElement("p");
-        p.innerHTML = `
-        Withdraw ${cashOutAmount} from Account No: ${accountNumber}
-        .`;
-        transactionContainer.appendChild(p);
+
+        //Adding to transaction history
+        const transactionContainer = document.getElementById(
+          "transaction-container"
+        );
+
+        let div = document.createElement("div");
+        div.classList.add("bg-yellow-200");
+        div.classList.add("p-2");
+        div.innerHTML = `
+        Withdraw Money ${cashOutAmount} taka from Account Number: 
+        ${accountNumber}.
+        `;
+        transactionContainer.appendChild(div);
       }
     } else {
       alert("Input cashout amount empty");

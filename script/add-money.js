@@ -35,20 +35,32 @@ document
     const pin = inputValidationId("pin");
     const mainBalance = getInnerTextById("main-balance");
     const accountNumber = document.getElementById("account-number").value;
+    if (amount < 0) {
+      alert("Negative value not allowed.");
+      return;
+    }
     if (amount && pin) {
       if (pin === 1234) {
         let sum = amount + mainBalance;
         setInnerTextByIdandValue("main-balance", sum);
         document.getElementById("amount").value = "";
+
+        //Adding to transaction history
         const transactionContainer = document.getElementById(
           "transaction-container"
         );
 
-        let p = document.createElement("p");
-        p.innerHTML = `
-        Added ${amount} taka from Account Number: ${accountNumber}
+        let selectedBank = document.getElementById("allbank").value;
+        // alert(selectedBank);
+
+        let div = document.createElement("div");
+        div.classList.add("bg-red-100");
+        div.classList.add("p-2");
+        div.innerHTML = `
+        Added Money from ${selectedBank} 
+        ${amount} taka from Account Number: ${accountNumber}.
         `;
-        transactionContainer.appendChild(p);
+        transactionContainer.appendChild(div);
       } else {
         alert("Pin not ok");
       }

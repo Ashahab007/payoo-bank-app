@@ -1,4 +1,6 @@
-document
+// beginner way of logic without using shared function
+
+/* document
   .getElementById("withdraw-money")
   .addEventListener("click", function (event) {
     // console.log(event);
@@ -18,5 +20,29 @@ document
       }
     } else {
       alert("Input Cashout Amount empty");
+    }
+  }); */
+
+// Advance way of logic using shared function from utility.js file
+
+document
+  .getElementById("withdraw-money")
+  .addEventListener("click", function (event) {
+    // console.log(event);
+    event.preventDefault(); // prevent auto reload in cashout
+    const cashOutAmount = inputValidationId("cashout-amount");
+    // alert(cashOutAmount);
+    const mainBalance = getInnerTextById("main-balance");
+
+    if (cashOutAmount) {
+      let sum = mainBalance - cashOutAmount;
+      if (sum <= 0) {
+        alert("Not Enough Balance");
+      } else {
+        setInnerTextByIdandValue("main-balance", sum);
+        document.getElementById("cashout-amount").value = "";
+      }
+    } else {
+      alert("Input cashout amount empty");
     }
   });

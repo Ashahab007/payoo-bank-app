@@ -34,12 +34,21 @@ document
     // alert(amount);
     const pin = inputValidationId("pin");
     const mainBalance = getInnerTextById("main-balance");
+    const accountNumber = document.getElementById("account-number").value;
     if (amount && pin) {
       if (pin === 1234) {
         let sum = amount + mainBalance;
         setInnerTextByIdandValue("main-balance", sum);
         document.getElementById("amount").value = "";
-        //   alert(sum);
+        const transactionContainer = document.getElementById(
+          "transaction-container"
+        );
+
+        let p = document.createElement("p");
+        p.innerHTML = `
+        Added ${amount} taka from Account Number: ${accountNumber}
+        `;
+        transactionContainer.appendChild(p);
       } else {
         alert("Pin not ok");
       }

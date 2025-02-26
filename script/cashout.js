@@ -33,6 +33,10 @@ document
     const cashOutAmount = inputValidationId("cashout-amount");
     // alert(cashOutAmount);
     const mainBalance = getInnerTextById("main-balance");
+    const transactionContainer = document.getElementById(
+      "transaction-container"
+    );
+    const accountNumber = document.getElementById("account-number").value;
 
     if (cashOutAmount) {
       let sum = mainBalance - cashOutAmount;
@@ -41,6 +45,11 @@ document
       } else {
         setInnerTextByIdandValue("main-balance", sum);
         document.getElementById("cashout-amount").value = "";
+        let p = document.createElement("p");
+        p.innerHTML = `
+        Withdraw ${cashOutAmount} from Account No: ${accountNumber}
+        .`;
+        transactionContainer.appendChild(p);
       }
     } else {
       alert("Input cashout amount empty");

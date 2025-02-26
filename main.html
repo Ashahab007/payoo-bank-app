@@ -91,7 +91,7 @@
               />
               <h3 class="text-xs">Pay Bill</h3>
             </div>
-            <div class="box border p-4 text-center rounded-sm cursor-pointer">
+            <div id="transaction-box" class="box border p-4 text-center rounded-sm cursor-pointer">
               <img
                 class="w-8 mx-auto"
                 src="./assets/icon transaction.png"
@@ -211,6 +211,57 @@
               </div>
             </div>
           </section>
+
+          <!-- Transaction Section -->
+          <section id="transaction-section" class=" mt-4">
+            <div class="bg-base-200 ">
+              <h1 class="font-bold text-xl py-2">Transaction History</h1>
+              <div class="hero-content flex-col lg:flex-row-reverse">
+                <div
+                  class="card bg-base-100 w-full max-w-sm shrink-0 shadow-2xl"
+                >
+                  <form class="card-body">
+                    <div class="form-control">
+                     
+                      <fieldset class="fieldset">
+                        <label class="fieldset-label">Agent Number</label>
+                        <input
+                          value="01301301302"
+                          maxlength=""
+                          id="acount-number"
+                          type="number"
+                          class="input"
+                          placeholder="Enter 11 digit number"
+                          required
+                        />
+                        <label class="fieldset-label">Amount</label>
+                        <input
+                          id="cashout-amount"
+                          type="number"
+                          class="input"
+                          placeholder="Enter Amount to Withdraw"
+                          required
+                        />
+                        <label class="fieldset-label">4 Digit Pin</label>
+                        <input
+                          id="pin"
+                          value="1234"
+                          type="text"
+                          class="input"
+                          placeholder="Enter your pin"
+                          required
+                        />
+                      
+                        <button id="withdraw-money" class="btn btn-neutral bg-blue-700 border-none w-full rounded-3xl mt-4">
+                          Withdraw Money
+                        </button>
+                      </fieldset>
+                      
+                  </form>
+                </div>
+              </div>
+            </div>
+          </section>
         </section>
       </header>
     </section>
@@ -218,5 +269,6 @@
     <script src="./script/utility.js"></script>
     <script src="./script/toggle.js"></script>
     <script src="./script/cashout.js"></script>
+    <script src="./script/transaction-history.js"></script>
   </body>
 </html>

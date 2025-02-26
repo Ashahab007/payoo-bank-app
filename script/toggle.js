@@ -14,16 +14,20 @@
 // !Toggling between add Money & Cash out using shared function (Advance)
 
 document.getElementById("cashout-section").style.display = "none";
+document.getElementById("transaction-section").style.display = "none";
 
-function toggleFunction(id1, id2) {
-  document.getElementById(id1).style.display = "block";
-  document.getElementById(id2).style.display = "none";
+function toggleFunction(id, status) {
+  document.getElementById(id).style.display = status;
 }
 
 document.getElementById("add-money-box").addEventListener("click", function () {
-  toggleFunction("add-money-section", "cashout-section");
+  toggleFunction("add-money-section", "block");
+  toggleFunction("cashout-section", "none");
+  toggleFunction("transaction-section", "none");
 });
 
 document.getElementById("cash-out-box").addEventListener("click", function () {
-  toggleFunction("cashout-section", "add-money-section");
+  toggleFunction("cashout-section", "block");
+  toggleFunction("add-money-section", "none");
+  toggleFunction("transaction-section", "none");
 });
